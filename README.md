@@ -13,10 +13,10 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 The following plan will be updated accordingly. This is only a draft version.
 
 - [X] Create proper GitHub repository.
-- [ ] Upload structure for documentation.
+- [X] Upload structure for documentation.
 - [ ] Scrape [chitanka.info](https://chitanka.info/).
-  - [ ] Index authors based on lexicographic order.
   - [ ] Use dataclasses to create dictionaries.
+  - [ ] Index authors based on lexicographic order.
 - [ ] Combine in a big dataset.
 - [ ] Check metrics on all data. Metrics explained in below section.
   - [ ] Spacy.
@@ -74,7 +74,6 @@ The goal is to include as much as possible (the more the better, right?). They w
 - **Function / Stop words**: The frequency of each function word.
 - **Flesch Reading Ease Score**: indicates the understandability of a passage with a number that ranges from 0 to 100. It shows how difficult it is to understand the content. The higher scores mean that the content is easy to read and understand `(206.835 - 1.015 × (total words ÷ total sentences) - 84.6 × (total syllables ÷ total words))`. Spacy has more information and examples [here](https://spacy.io/universe/project/spacy_syllables).
 
-
 ## Approach with modelling
 
 Goal is to try four types of models:
@@ -94,8 +93,8 @@ Parallel to the above or after it experiments should be done to determine the be
 
 ### Scrapy YouTube tutorials
 
-- [Intro To Web Crawlers & Scraping With Scrapy - Traversy Media](https://www.youtube.com/watch?v=ALizgnSFTwQ)
 - [Best Web Scraping Combo?? Use These In Your Projects - John Watson Rooney](https://www.youtube.com/watch?v=HpRsfpPuUzE)
+- [Intro To Web Crawlers & Scraping With Scrapy - Traversy Media](https://www.youtube.com/watch?v=ALizgnSFTwQ)
 
 ### POS Tagger for Bulgarian
 
