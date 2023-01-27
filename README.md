@@ -14,10 +14,11 @@ The following plan will be updated accordingly. This is only a draft version.
 
 - [X] Create proper GitHub repository.
 - [X] Upload structure for documentation.
-- [ ] Scrape [chitanka.info](https://chitanka.info/).
-  - [ ] Use dataclasses to create dictionaries.
-  - [ ] Index authors based on lexicographic order.
-- [ ] Combine in a big dataset.
+- [X] Scrape [chitanka.info](https://chitanka.info/).
+  - [X] Use dataclasses to create dictionaries.
+- [X] Combine in a big dataset.
+- [X] Filter only texts used for modelling.
+- [ ] Download texts. Combine in a big dataframe.
 - [ ] Check metrics on all data. Metrics explained in below section.
   - [ ] Spacy.
   - [ ] Bulgarian-nlp POS tagger.

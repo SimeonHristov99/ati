@@ -31,23 +31,24 @@ def get_html(url: str) -> HTMLParser:
     return html_parsed
 
 
-def parse_texts(url: str, html: HTMLParser) -> List[Text]:
+def parse_texts(author: str, url: str, html: HTMLParser) -> List[Text]:
     """
     For each author return all their texts.
 
     Args:
-        html (HTMLParser): The parsed GET request.
+        author (str): Name of the author.
+        url (str): Full URL from which texts can be found and downloaded.
+        html (HTMLParser): Parsed HTML.
 
     Returns:
         List[Text]: The texts of the author.
     """
-    author = html.css_first('a.selflink').text().strip()
     items = html.css('dl.text-entity')
 
     results = [
         Text(
             author=author,
-            title=item.css_first('a.textlink').text().strip(),
+            title=item.css_first('a.textlink').text().strip(" „“…!?"),
             download_link=url + item.css_first(
                 'a.dl-txt').attributes.get('href').strip(),
         ) for item in items
@@ -79,7 +80,7 @@ def scrape(url: str, authors: List[str]) -> pd.DataFrame:
     for author in authors:
         texts_url = f'{url}/{author}#texts'
         html = get_html(texts_url)
-        texts = parse_texts(download_url, html)
+        texts = parse_texts(author, download_url, html)
         all_texts.extend(texts)
 
     result = pd.DataFrame(all_texts)
