@@ -33,6 +33,7 @@ The following plan will be updated accordingly. This is only a draft version.
   - [ ] Only metrics.
   - [ ] Combinations.
   - [ ] 10-fold CV measuring the log loss.
+  - [ ] Catboost.
   - [ ] Compare `LogisticRegression`, `KNeighborsClassifier`, `GaussianNB`, `MultinomialNB`, `DecisionTree`, `RandomForest`, `XGBoost`, and `combined/aggregated`.
 - [ ] Evaluating on val split:
   - [ ] confusion matrix.
@@ -89,7 +90,7 @@ Parallel to the above or after it experiments should be done to determine the be
 
 ### Where can the texts be found?
 
-- https://chitanka.info/
+- <https://chitanka.info/>
 
 ### Scrapy YouTube tutorials
 
