@@ -69,20 +69,26 @@ def remove_zipfiles(path: str) -> str:
     return directory.name
 
 
-def download_and_extract_zips(urls: List[str], output_dir: str) -> None:
+def download_and_extract_zips(urls: List[str], output_dir: str) -> List[str]:
     """Downloads a zip file into a specified directory
         and extracts its contents.
 
     Args:
         urls (List[str]): The urls from which to download.
         output_dir (str): The place where the files will be saved and extracted.
+        
+    Returns:
+        List[str]: The names of the extracted text files.
     """
+    filenames = []
     for i, url in enumerate(urls):
         filename = download_file(url, output_dir)
         unzipped_filename = unzip_file(filename, output_dir)
+        filenames.append(unzipped_filename)
         print(f'Extracted {i+1:02}: {unzipped_filename}')
 
     remove_zipfiles(output_dir)
+    return filenames
 
 
 if __name__ == '__main__':

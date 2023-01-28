@@ -21,7 +21,8 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 
 ### Sprint 02
 
-- [ ] Download texts. Combine in a big dataframe.
+- [X] Download texts.
+- [ ] Combine them in a dataframe.
 - [ ] Preprocessing:
   - [ ] Lemmatize.
   - [ ] Stem.
