@@ -17,8 +17,7 @@ class Text:
 
 
 def get_html(url: str) -> HTMLParser:
-    """
-    Parse a response from a GET request.
+    """Parse the response from a GET request.
 
     Args:
         url (str): Full URL for the path.
@@ -32,8 +31,7 @@ def get_html(url: str) -> HTMLParser:
 
 
 def parse_texts(author: str, url: str, html: HTMLParser) -> List[Text]:
-    """
-    For each author return all their texts.
+    """For each author return all their texts.
 
     Args:
         author (str): Name of the author.
@@ -58,8 +56,7 @@ def parse_texts(author: str, url: str, html: HTMLParser) -> List[Text]:
 
 
 def scrape(url: str, authors: List[str]) -> pd.DataFrame:
-    """
-    Returns a dataframe with the name of the author, title of text written
+    """Returns a dataframe with the name of the author, title of text written
     by them and a link from it can be downloaded.
 
     Args:
