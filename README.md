@@ -22,8 +22,12 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 ### Sprint 02
 
 - [X] Download texts.
-- [ ] Combine them in a dataframe.
-- [ ] Preprocessing:
+- [X] Combine them in a dataframe.
+- [X] Simple preprocessing:
+  - [X] Remove suffix from each text (holds metainformation).
+  - [X] Remove prefix from each text (holds metainformation).
+- [ ] Organize notebooks: split the first one into two.
+- [ ] Main preprocessing:
   - [ ] Lemmatize.
   - [ ] Stem.
   - [ ] Bigrams and Trigrams.
