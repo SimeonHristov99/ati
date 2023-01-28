@@ -10,7 +10,7 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 
 ## Plan of attack
 
-The following plan will be updated accordingly. This is only a draft version.
+### Sprint 01
 
 - [X] Create proper GitHub repository.
 - [X] Upload structure for documentation.
@@ -18,36 +18,45 @@ The following plan will be updated accordingly. This is only a draft version.
   - [X] Use dataclasses to create dictionaries.
 - [X] Combine in a big dataset.
 - [X] Filter only texts used for modelling.
+
+### Sprint 02
+
 - [ ] Download texts. Combine in a big dataframe.
-- [ ] Check metrics on all data. Metrics explained in below section.
-  - [ ] Spacy.
-  - [ ] Bulgarian-nlp POS tagger.
-- [ ] See how you're going to approach preprocessing - maybe it should not be that strict. Possibilities:
+- [ ] Preprocessing:
   - [ ] Lemmatize.
   - [ ] Stem.
   - [ ] Bigrams and Trigrams.
-- [ ] Train/val/test split.
-- [ ] Check metrics on train set. Are they different from the ones in the main dataset? If yes, that could suggest that they very quite dramatically and are potentially not useful.
-- [ ] Modelling with [PyCaret](https://pycaret.org/) and [Optuna](https://optuna.org/).
+- [ ] Word embedding:
   - [ ] tf-idf.
-  - [ ] sbert.
-  - [ ] Only metrics.
-  - [ ] Combinations.
-  - [ ] 10-fold CV measuring the log loss.
+- [ ] Modelling:
+  - [ ] Train/val/test split.
   - [ ] Catboost.
-  - [ ] Compare `LogisticRegression`, `KNeighborsClassifier`, `GaussianNB`, `MultinomialNB`, `DecisionTree`, `RandomForest`, `XGBoost`, and `combined/aggregated`.
 - [ ] Evaluating on val split:
   - [ ] confusion matrix.
   - [ ] f1.
   - [ ] mcc.
   - [ ] Log loss.
-- [ ] Once you are sure of what the final model will look like evaluate it on the test set. This should be done only 1 time!
+- [ ] 10-fold CV measuring the log loss with Catboost.
+  - [ ] Try to use Optuna.
+- [ ] Evaluating on test split. This should be done only 1 time!
   - [ ] confusion matrix.
   - [ ] f1.
   - [ ] mcc.
   - [ ] Log loss.
 - [ ] Pickle model.
-- [ ] Creating the user interface using [streamlit](https://streamlit.io/).
+- [ ] Create the user interface using [streamlit](https://streamlit.io/).
+
+### Backlog
+
+- [ ] Check metrics on all texts for each author.
+  - [ ] Spacy.
+  - [ ] Bulgarian-nlp POS tagger.
+  - [ ] Check metrics on train set. Are they different from the ones in the main dataset? If yes, that could suggest that they very quite dramatically and are potentially not useful.
+- [ ] Modelling with [PyCaret](https://pycaret.org/) and [Optuna](https://optuna.org/).
+  - [ ] sbert.
+  - [ ] Only metrics.
+  - [ ] Combinations.
+  - [ ] Compare `LogisticRegression`, `KNeighborsClassifier`, `GaussianNB`, `MultinomialNB`, `DecisionTree`, `RandomForest`, `XGBoost`, and `combined/aggregated`.
 - [ ] Dockerize.
 
 ## Motivation / Use cases
