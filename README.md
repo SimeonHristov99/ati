@@ -28,7 +28,7 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
   - [X] Remove prefix from each text (holds metainformation).
 - [X] Organize notebooks: split the first one into two.
 - [X] Preprocessing: Lemmatize, Stem, Bigrams, Trigrams, Fourgrams.
-- [ ] Word embedding: tf-idf.
+- [X] Word embedding: tf-idf.
 - [ ] Modelling:
   - [ ] Train/val/test split.
   - [ ] Catboost.
