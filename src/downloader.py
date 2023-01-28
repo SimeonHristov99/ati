@@ -84,6 +84,7 @@ def download_and_extract_zips(urls: List[str], output_dir: str) -> List[str]:
     for i, url in enumerate(urls):
         filename = download_file(url, output_dir)
         unzipped_filename = unzip_file(filename, output_dir)
+        unzipped_filename = f'{output_dir}/{unzipped_filename}'
         filenames.append(unzipped_filename)
         print(f'Extracted {i+1:02}: {unzipped_filename}')
 
