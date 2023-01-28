@@ -26,7 +26,7 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 - [X] Simple preprocessing:
   - [X] Remove suffix from each text (holds metainformation).
   - [X] Remove prefix from each text (holds metainformation).
-- [ ] Organize notebooks: split the first one into two.
+- [X] Organize notebooks: split the first one into two.
 - [ ] Main preprocessing:
   - [ ] Lemmatize.
   - [ ] Stem.
