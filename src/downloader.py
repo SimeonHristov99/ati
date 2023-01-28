@@ -1,5 +1,10 @@
 """ Populates the `./DATA/original` directory with text files. """
 
+import re
+import zipfile
+from pathlib import Path
+from typing import List
+
 import requests
 
 
@@ -28,14 +33,57 @@ def download_file(url: str, output_dir: str) -> str:
     return local_filename
 
 
-def main():
-    """Main function for testing purposes.
+def unzip_file(filename: str, output_dir: str) -> str:
+    """Unzips the first file in a zip archive.
+
+    Args:
+        filename (str): Relative path to the zip file.
+        output_dir (str): Directory in which the first file will be unzipped.
+
+    Returns:
+        str: The name of the unzipped file.
     """
-    URL = '	https://chitanka.info/text/5283-andreshko.txt.zip'
-    output_dir = './DATA/original'
-    loc = download_file(URL, output_dir)
-    print(f'Saved to {loc}')
+    zipdata = zipfile.ZipFile(filename)
+    zipinfo = zipdata.infolist()[0]
+
+    name = ''.join(zipinfo.filename.split('.')[:-1])
+    zipinfo.filename = re.sub(r"[^a-zA-Z]{2}|\d", "", name.lower())
+    zipinfo.filename = re.sub(r"\s", "_", zipinfo.filename) + '.txt'
+
+    zipdata.extract(zipinfo, path=output_dir)
+    return zipinfo.filename
+
+
+def remove_zipfiles(path: str) -> str:
+    """Removes all zipfiles in a directory. Not recursive.
+
+    Args:
+        path (str): Relative or absolute path to the directory.
+
+    Returns:
+        str: The name of the directory.
+    """
+    directory = Path(path)
+    for file in directory.glob('*.zip'):
+        file.unlink()
+    return directory.name
+
+
+def download_and_extract_zips(urls: List[str], output_dir: str) -> None:
+    """Downloads a zip file into a specified directory
+        and extracts its contents.
+
+    Args:
+        urls (List[str]): The urls from which to download.
+        output_dir (str): The place where the files will be saved and extracted.
+    """
+    for i, url in enumerate(urls):
+        filename = download_file(url, output_dir)
+        unzipped_filename = unzip_file(filename, output_dir)
+        print(f'Extracted {i+1:02}: {unzipped_filename}')
+
+    remove_zipfiles(output_dir)
 
 
 if __name__ == '__main__':
-    main()
+    print('Hello, from downloader.py!')
