@@ -30,6 +30,7 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 - [X] Preprocessing: Lemmatize, Stem, Bigrams, Trigrams, Fourgrams.
 - [X] Word embedding: tf-idf.
 - [X] Perform EDA.
+- [X] Create samples (parts of random texts) instead of using the whole texts as such.
 - [ ] Modelling:
   - [ ] Train/val/test split.
   - [ ] Catboost.
@@ -45,7 +46,6 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
   - [ ] f1.
   - [ ] mcc.
   - [ ] Log loss.
-- [ ] Is creating multiple samples from the texts better? For example, now you have 10 texts for vazov but only 1 for dimityr talev.
 - [ ] Pickle model.
 - [ ] Create the user interface using [streamlit](https://streamlit.io/).
 
