@@ -31,26 +31,24 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 - [X] Word embedding: tf-idf.
 - [X] Perform EDA.
 - [X] Create samples (parts of random texts) instead of using the whole texts as such.
-- [ ] Modelling:
-  - [ ] Train/val/test split.
-  - [ ] Catboost.
-- [ ] Evaluating on val split:
-  - [ ] confusion matrix.
-  - [ ] f1.
-  - [ ] mcc.
-  - [ ] Log loss.
-- [ ] 10-fold CV measuring the log loss with Catboost.
-  - [ ] Try to use Optuna.
-- [ ] Evaluating on test split. This should be done only 1 time!
-  - [ ] confusion matrix.
-  - [ ] f1.
-  - [ ] mcc.
-  - [ ] Log loss.
-- [ ] Pickle model.
+- [X] Modelling:
+  - [X] Train/val/test split.
+  - [X] PCA so as to not overfit.
+- [X] Evaluating on val split:
+  - [X] f1.
+  - [X] mcc.
+  - [X] Log loss.
+- [X] Evaluating on test split. This should be done only 1 time!
+  - [X] f1.
+  - [X] mcc.
+  - [X] Log loss.
+- [X] Pickle model.
 - [ ] Create the user interface using [streamlit](https://streamlit.io/).
 
 ### Backlog
 
+- [ ] confusion matrix.
+- [ ] Catboost.
 - [ ] Check metrics on all texts for each author.
   - [ ] Spacy.
   - [ ] Bulgarian-nlp POS tagger.
