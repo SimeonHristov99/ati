@@ -57,8 +57,8 @@ def tokenize(raw_text: str, level: str) -> List[str]:
         tokens = [stemmer.stem(token) for token in tokens]
         # Now: ['песен', 'македони', 'българск', 'бог', ..
 
-    bi_tri_grams = list(ngrams(tokens, 2)) # + \
-        # list(ngrams(tokens, 3)) + list(ngrams(tokens, 4))
+    bi_tri_grams = list(ngrams(tokens, 2)) + \
+        list(ngrams(tokens, 3)) + list(ngrams(tokens, 4))
     tokens += map(lambda bts: ' '.join(bts), bi_tri_grams)
 
     return tokens

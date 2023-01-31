@@ -131,3 +131,4 @@ dmypy.json
 # Custom
 template-course_project2.doc
 DATA
+src/catboost_info
