@@ -52,7 +52,7 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 - [X] PyCaret with PCA.
 - [X] PyCaret without PCA. Results seem to be (almost) the same.
 - [ ] Implement as much metrics as possible:
-  - [ ] Character-based lexical features;
+  - [X] Character-based lexical features;
   - [ ] Sentence- and word-based features;
   - [ ] Function / Stop words;
   - [ ] Flesch Reading Ease Score.
