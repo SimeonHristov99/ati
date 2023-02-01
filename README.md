@@ -43,22 +43,37 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
   - [X] mcc.
   - [X] Log loss.
 - [X] Pickle model.
-- [ ] Create the user interface using [streamlit](https://streamlit.io/).
+- [X] Create the user interface using [streamlit](https://streamlit.io/).
+
+### Sprint 03
+
+- [X] Explore `Catboost`.
+- [X] Try to create a pipeline object.
+- [X] PyCaret with PCA.
+- [X] PyCaret without PCA. Results seem to be (almost) the same.
+- [ ] Implement as much metrics as possible:
+  - [ ] Character-based lexical features;
+  - [ ] Sentence- and word-based features;
+  - [ ] Function / Stop words;
+  - [ ] Flesch Reading Ease Score.
+  - [ ] Word cloud;
+  - [ ] Experiment with:
+    - [ ] Spacy.
+    - [ ] Bulgarian-nlp POS tagger.
+- [ ] Check metrics on train set. Are they different from the ones in the main dataset? If yes, that could suggest that they very quite dramatically and are potentially not useful.
 
 ### Backlog
 
 - [ ] confusion matrix.
-- [ ] Catboost.
-- [ ] Check metrics on all texts for each author.
-  - [ ] Spacy.
-  - [ ] Bulgarian-nlp POS tagger.
-  - [ ] Check metrics on train set. Are they different from the ones in the main dataset? If yes, that could suggest that they very quite dramatically and are potentially not useful.
 - [ ] Modelling with [PyCaret](https://pycaret.org/) and [Optuna](https://optuna.org/).
   - [ ] sbert.
-  - [ ] Only metrics.
   - [ ] Combinations.
   - [ ] Compare `LogisticRegression`, `KNeighborsClassifier`, `GaussianNB`, `MultinomialNB`, `DecisionTree`, `RandomForest`, `XGBoost`, and `combined/aggregated`.
 - [ ] Dockerize.
+
+### Future improvements
+
+- [ ] Remove multicolinearity.
 
 ## Motivation / Use cases
 
