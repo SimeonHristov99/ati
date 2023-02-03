@@ -51,21 +51,19 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 - [X] Try to create a pipeline object.
 - [X] PyCaret with PCA.
 - [X] PyCaret without PCA. Results seem to be (almost) the same.
-- [ ] Implement as much metrics as possible:
+- [X] Implement as much metrics as possible:
+  - [X] Install bulgarian-nlp POS tagger. Couldn't make it work. Used [classla](https://pypi.org/project/classla/) Python package.
   - [X] Character-based lexical features;
-  - [ ] Sentence- and word-based features;
-  - [ ] Function / Stop words;
-  - [ ] Flesch Reading Ease Score.
-  - [ ] Word cloud;
-  - [ ] Experiment with:
-    - [ ] Spacy.
-    - [ ] Bulgarian-nlp POS tagger.
-- [ ] Check metrics on train set. Are they different from the ones in the main dataset? If yes, that could suggest that they very quite dramatically and are potentially not useful.
+  - [X] Sentence- and word-based features;
+  - [X] Function / Stop words;
+  - [X] Flesch Reading Ease Score.
+- [ ] Modelling.
+- [ ] Word cloud;
 
 ### Backlog
 
 - [ ] confusion matrix.
-- [ ] Modelling with [PyCaret](https://pycaret.org/) and [Optuna](https://optuna.org/).
+- [ ] Try using embeddings.
   - [ ] sbert.
   - [ ] Combinations.
   - [ ] Compare `LogisticRegression`, `KNeighborsClassifier`, `GaussianNB`, `MultinomialNB`, `DecisionTree`, `RandomForest`, `XGBoost`, and `combined/aggregated`.
@@ -125,7 +123,8 @@ Parallel to the above or after it experiments should be done to determine the be
 
 ### POS Tagger for Bulgarian
 
-- [bulgarian-nlp](https://github.com/AMontgomerie/bulgarian-nlp)
+- [classla](https://pypi.org/project/classla/)
+- [bulgarian-nlp](https://github.com/AMontgomerie/bulgarian-nlp) <- Did not work for me.
 
 ### Papers on the topic
 
