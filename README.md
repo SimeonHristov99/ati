@@ -57,17 +57,18 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
   - [X] Sentence- and word-based features;
   - [X] Function / Stop words;
   - [X] Flesch Reading Ease Score.
-- [ ] Modelling.
+- [X] Modelling.
 - [ ] Word cloud;
 
 ### Backlog
 
 - [ ] confusion matrix.
 - [ ] Try using embeddings.
-  - [ ] sbert.
+  - [ ] sbert: transformer embeddings.
   - [ ] Combinations.
   - [ ] Compare `LogisticRegression`, `KNeighborsClassifier`, `GaussianNB`, `MultinomialNB`, `DecisionTree`, `RandomForest`, `XGBoost`, and `combined/aggregated`.
 - [ ] Dockerize.
+- [ ] Fix links in last section of documentation.
 
 ### Future improvements
 
