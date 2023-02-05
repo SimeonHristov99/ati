@@ -58,21 +58,24 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
   - [X] Function / Stop words;
   - [X] Flesch Reading Ease Score.
 - [X] Modelling.
-- [ ] Word cloud;
+- [X] Word cloud;
 
-### Backlog
+### Sprint 04
 
-- [ ] confusion matrix.
-- [ ] Try using embeddings.
-  - [ ] sbert: transformer embeddings.
+- [ ] Pipeline for the text features models.
+- [ ] Show text features in streamlit.
+- [ ] EDA on the text features.
+- [ ] Try using transformer embeddings using `sbert`.
   - [ ] Combinations.
   - [ ] Compare `LogisticRegression`, `KNeighborsClassifier`, `GaussianNB`, `MultinomialNB`, `DecisionTree`, `RandomForest`, `XGBoost`, and `combined/aggregated`.
-- [ ] Dockerize.
+- [ ] Finish documentation
 - [ ] Fix links in last section of documentation.
 
 ### Future improvements
 
 - [ ] Remove multicolinearity.
+- [ ] Better modelling.
+- [ ] More EDA.
 
 ## Motivation / Use cases
 
@@ -94,17 +97,16 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 
 The goal is to include as much as possible (the more the better, right?). They were taken from [here](https://ceur-ws.org/Vol-2936/paper-191.pdf).
 
-- **Word cloud**: Most used (meaningful) words;
 - **Character-based lexical features**: The number of distinct special character, spaces, punctuation, parentheses and quotation marks as separate features.
 - **Sentence- and word-based features**: Distribution of POS-tags, token length, number of sentences, sentence length, average word length, words in all-caps and counts of words above and below 2-3 and 6 characters as separate features. For those statistics a possible package to use is [spacy](https://spacy.io/).
 - **Function / Stop words**: The frequency of each function word.
-- **Flesch Reading Ease Score**: indicates the understandability of a passage with a number that ranges from 0 to 100. It shows how difficult it is to understand the content. The higher scores mean that the content is easy to read and understand `(206.835 - 1.015 × (total words ÷ total sentences) - 84.6 × (total syllables ÷ total words))`. Spacy has more information and examples [here](https://spacy.io/universe/project/spacy_syllables).
+- Various types of **Reading Ease Scores**: indicate the understandability of a passage with a number. It shows how difficult it is to understand the content.
 
 ## Approach with modelling
 
 Goal is to try four types of models:
 
-1. By using *tf-idf* create a big matrix with word embeddings. use it to predict the author.
+1. By using *tf-idf* create a big matrix with word embeddings. Use it to predict the author.
 2. By using an encoding from a transformer - [sbert](https://www.sbert.net/), to get the word embeddings.
 3. Using only the metrics.
 4. Making a combination of the above approaches: for example, concatenating the encodings from 2 with the metrics 3.
