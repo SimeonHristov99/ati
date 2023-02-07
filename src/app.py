@@ -71,9 +71,3 @@ if st.button("Submit") and text_input != '':
                 f'The most likely author according to Ridge Classifier of the above text is **{prediction_sbert}**.')
         else:
             st.error('This type of text preprocessing is not supported, yet.')
-
-    # y_pred_class = model.predict(X_test) # Used in evalution
-    # pipe_svc.predict(tmp)
-    # print(pipe_svc.predict(pd.DataFrame({'text': text_input})))
-    # preprcessed = pipeline(text_input)
-    # prediction = predict_model(ridge, data=preprcessed)
