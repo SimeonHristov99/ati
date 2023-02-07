@@ -5,7 +5,7 @@ import pandas as pd
 import streamlit as st
 from pycaret.classification import load_model, predict_model
 
-from pipelines import pipeline_tf_idf, pipeline_text_features
+from pipelines import pipeline_sbert, pipeline_text_features, pipeline_tf_idf
 
 DATA_PATH_PREP = '../DATA/prepared'
 
@@ -16,6 +16,7 @@ def identity(x):
 
 ridge = load_model(f'{DATA_PATH_PREP}/06_pycaret_ridge')
 et = load_model(f'{DATA_PATH_PREP}/06_pycaret_ridge_textfeats_et')
+ridge_sbert = load_model(f'{DATA_PATH_PREP}/06_pycaret_sbert')
 
 st.set_page_config(
     layout='wide',
@@ -55,14 +56,19 @@ if st.button("Submit") and text_input != '':
                 'Here is the complexity of the text based on different metrics:')
             metrics = ['fre', 'air', 'gfi', 'cli', 'smog']
             st.write(text_input_tf[metrics])
-            
+
             text_input_tf.columns = np.arange(len(text_input_tf.columns))
             results_et = predict_model(et, data=text_input_tf)
             prediction_et = results_et['prediction_label'][0]
             st.markdown(
                 f'The most likely author according to Extra Trees Classifier of the above text is **{prediction_et}**.')
         elif add_radio == 'sBERT':
-            pass
+            text_input_sbert = pipeline_sbert(text_input)
+            print(text_input_sbert)
+            results_sbert = predict_model(ridge_sbert, data=text_input_sbert)
+            prediction_sbert = results_sbert['prediction_label'][0]
+            st.markdown(
+                f'The most likely author according to Ridge Classifier of the above text is **{prediction_sbert}**.')
         else:
             st.error('This type of text preprocessing is not supported, yet.')
 
