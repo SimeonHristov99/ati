@@ -63,16 +63,13 @@ Given a corpus of documents `D`, each one written by one author `y`, identify th
 ### Sprint 04
 
 - [X] EDA on the text features.
-- [ ] Pipeline for the text features models.
-- [ ] Show text features in streamlit.
-- [ ] Try using transformer embeddings using `sbert`.
-  - [ ] Combinations.
-  - [ ] Compare `LogisticRegression`, `KNeighborsClassifier`, `GaussianNB`, `MultinomialNB`, `DecisionTree`, `RandomForest`, `XGBoost`, and `combined/aggregated`.
-- [ ] Finish documentation
-- [ ] Fix links in last section of documentation.
+- [X] Pipeline for the text features models.
+- [X] Show text features in streamlit.
+- [X] Try using transformer embeddings using `sbert`.
 
 ### Future improvements
 
+- [ ] Compare `LogisticRegression`, `KNeighborsClassifier`, `GaussianNB`, `MultinomialNB`, `DecisionTree`, `RandomForest`, `XGBoost`, and `combined/aggregated`.
 - [ ] Remove multicolinearity.
 - [ ] Better modelling.
 - [ ] More EDA.
