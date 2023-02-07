@@ -64,7 +64,6 @@ if st.button("Submit") and text_input != '':
                 f'The most likely author according to Extra Trees Classifier of the above text is **{prediction_et}**.')
         elif add_radio == 'sBERT':
             text_input_sbert = pipeline_sbert(text_input)
-            print(text_input_sbert)
             results_sbert = predict_model(ridge_sbert, data=text_input_sbert)
             prediction_sbert = results_sbert['prediction_label'][0]
             st.markdown(
