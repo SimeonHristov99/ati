@@ -1,22 +1,24 @@
 """Holds the logic for preparing an input string written by the user to a model-ready dataframe."""
 
 import json
+import numpy as np
 import pickle
 from collections import Counter
+from typing import Tuple
 
 import classla
 import pandas as pd
 from nltk.probability import FreqDist
+from nltk.tokenize import sent_tokenize
+from sentence_transformers import SentenceTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 from preprocessing import tokenize
 from readability import (automated_readability_index, coleman_liau_index,
                          flesch_reading_ease, gunning_fog_index, smog)
 
-from typing import Tuple
-
 nlp = classla.Pipeline('bg', processors='tokenize,pos')
-
+model_bg = SentenceTransformer('distiluse-base-multilingual-cased-v2')
 
 def load_vectorizer(filename: str) -> TfidfVectorizer:
     """Reads pickled vectorizer into memory.
@@ -170,7 +172,21 @@ def pipeline_text_features(raw_input: str, return_tags: bool = False) -> pd.Data
     return text_features
 
 
+def pipeline_sbert(raw_input: str):
+    NUM_COLS = 13311
+    embeddings = model_bg.encode(sent_tokenize(raw_input.strip()))
+    embeddings = embeddings.reshape(-1)
+
+    if embeddings.shape[0] > NUM_COLS:
+        embeddings = embeddings[:NUM_COLS+1]
+    else:
+        embeddings = np.append(embeddings, np.zeros(NUM_COLS - len(embeddings) + 1))
+
+    return pd.DataFrame(embeddings).T
+
+
 if __name__ == '__main__':
     raw_input = 'Алеко Константинов е роден в Свищов. Кой е Иван Вазов?'
-    text_features = pipeline_text_features(raw_input)
-    print(text_features)
+    sbert_embeds = pipeline_sbert(raw_input)
+    print(sbert_embeds)
+    print(sbert_embeds.shape)
